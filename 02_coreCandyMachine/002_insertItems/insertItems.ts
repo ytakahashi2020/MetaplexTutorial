@@ -6,7 +6,10 @@ import {
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import {
+  addConfigLines,
   create,
+  CreateInput,
+  fetchCandyMachine,
   mplCandyMachine,
 } from "@metaplex-foundation/mpl-core-candy-machine";
 
@@ -50,3 +53,20 @@ const createIx = await create(umi, {
 await createIx.sendAndConfirm(umi);
 
 console.log(`candyMachine is ${candyMachine.publicKey}`);
+
+await addConfigLines(umi, {
+  candyMachine: candyMachine.publicKey,
+  index: 0,
+  configLines: [
+    { name: "1", uri: "1.json" },
+    { name: "2", uri: "2.json" },
+  ],
+}).sendAndConfirm(umi);
+
+const InsertedCandyMachine = await fetchCandyMachine(
+  umi,
+  candyMachine.publicKey
+);
+
+console.log(`item 1 name is ${InsertedCandyMachine.items[0].name}`);
+console.log(`item 2 name is ${InsertedCandyMachine.items[1].name}`);

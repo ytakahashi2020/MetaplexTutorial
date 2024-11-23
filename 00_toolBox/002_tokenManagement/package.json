@@ -1,0 +1,18 @@
+{
+  "name": "002_tokenmanagement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@metaplex-foundation/mpl-toolbox": "^0.9.4",
+    "@metaplex-foundation/umi": "^0.9.2",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.9.2",
+    "esrun": "^3.2.26"
+  }
+}

@@ -6,8 +6,13 @@ import {
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import {
-  create,
+  addConfigLines,
+  createCandyMachine,
+  CreateInput,
+  fetchCandyMachine,
   mplCandyMachine,
+  mintV1,
+  create,
 } from "@metaplex-foundation/mpl-core-candy-machine";
 
 import fs from "fs";
@@ -37,16 +42,39 @@ const createIx = await create(umi, {
   candyMachine: candyMachine,
   collection: coreCollection,
   collectionUpdateAuthority: umi.identity,
-  itemsAvailable: 100,
+  itemsAvailable: 4,
+  authority: umi.identity.publicKey,
   configLineSettings: some({
-    prefixName: "Example Asset #",
+    prefixName: "Asset #",
     nameLength: 15,
     prefixUri: "https://example.com/metadata/",
     uriLength: 29,
     isSequential: false,
   }),
+  guards: {},
 });
 
 await createIx.sendAndConfirm(umi);
 
 console.log(`candyMachine is ${candyMachine.publicKey}`);
+
+await addConfigLines(umi, {
+  candyMachine: candyMachine.publicKey,
+  index: 0,
+  configLines: [
+    { name: "1", uri: "1.json" },
+    { name: "2", uri: "2.json" },
+    { name: "3", uri: "3.json" },
+    { name: "4", uri: "4.json" },
+  ],
+}).sendAndConfirm(umi);
+
+const asset = generateSigner(umi);
+
+await mintV1(umi, {
+  candyMachine: candyMachine.publicKey,
+  asset: asset,
+  collection: coreCollection,
+}).sendAndConfirm(umi);
+
+console.log(`asset is ${asset.publicKey}`);
