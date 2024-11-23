@@ -3,10 +3,14 @@ import {
   keypairIdentity,
   publicKey,
   some,
+  dateTime,
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import {
   addConfigLines,
+  createCandyMachine,
+  CreateInput,
+  fetchCandyMachine,
   mplCandyMachine,
   mintV1,
   create,
@@ -39,7 +43,7 @@ const createIx = await create(umi, {
   candyMachine: candyMachine,
   collection: coreCollection,
   collectionUpdateAuthority: umi.identity,
-  itemsAvailable: 4,
+  itemsAvailable: 1,
   authority: umi.identity.publicKey,
   configLineSettings: some({
     prefixName: "Asset #",
@@ -48,7 +52,11 @@ const createIx = await create(umi, {
     uriLength: 29,
     isSequential: false,
   }),
-  guards: {},
+  guards: {
+    startDate: some({
+      date: dateTime("2025-01-24T15:30:00.000Z"),
+    }),
+  },
 });
 
 await createIx.sendAndConfirm(umi);
@@ -58,12 +66,7 @@ console.log(`candyMachine is ${candyMachine.publicKey}`);
 await addConfigLines(umi, {
   candyMachine: candyMachine.publicKey,
   index: 0,
-  configLines: [
-    { name: "1", uri: "1.json" },
-    { name: "2", uri: "2.json" },
-    { name: "3", uri: "3.json" },
-    { name: "4", uri: "4.json" },
-  ],
+  configLines: [{ name: "1", uri: "1.json" }],
 }).sendAndConfirm(umi);
 
 const asset = generateSigner(umi);

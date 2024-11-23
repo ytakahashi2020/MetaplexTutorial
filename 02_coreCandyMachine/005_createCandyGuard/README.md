@@ -41,21 +41,31 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 ### Step5 Create a signer and publickey about collection
 
 1.generateSigner  
-2.publickey (we use 8Y9KBabGJTNKbYn9mk1TmET4BkbiKWhuZrXYR4B9vPvE)
+2.publickey (we use BzPuPVqtBrY2UcAN7phrv2icUbpXgqczZcMjAyx273cG)
 
 ### Step6 Create a transaction
 
-1.use create from mpl-core-candy-machine  
+1.use createCandyGuard from mpl-core-candy-machine  
 2.parameters
+1)base  
+2)guards  
+2-1)botTax
+2-2)solPayment
+2-3)startDate
+2-4)endDate
+3.sendAndConfirm
 
-1)candyMachine  
-2)collection  
-3)collectionUpdateAuthority  
-4)itemAvailable  
-5)ConfigLineSettings
+### Step 7 get a candyGuardAccount
 
-5-1)prefixName: "Example Asset #"(15 characters)  
-5-2)nameLength  
-5-3)prefixUi: "https://example.com/metadata/"(29 characters)  
-5-4)uriLength  
-5-5)isSequential
+1.findCandyGuardPda
+2.fetchCandyGuard
+
+### Step 8 mint
+
+1.mintV1
+2.parameters
+2-1)candyMachine
+2-2)asset
+2-3)collection
+3.sendAndConfirm
+4.Confirm error happens

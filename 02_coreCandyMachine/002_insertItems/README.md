@@ -41,7 +41,7 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 ### Step5 Create a signer and publickey about collection
 
 1.generateSigner  
-2.publickey (we use 8Y9KBabGJTNKbYn9mk1TmET4BkbiKWhuZrXYR4B9vPvE)
+2.publickey (we use BzPuPVqtBrY2UcAN7phrv2icUbpXgqczZcMjAyx273cG)
 
 ### Step6 Create a transaction
 
@@ -59,3 +59,16 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 5-3)prefixUi: "https://example.com/metadata/"(29 characters)  
 5-4)uriLength  
 5-5)isSequential
+
+### Step 7 add a config line
+
+1.addConfigLines from mpl-core-candy-machine
+2.parameters
+2-1)candymachine
+2-2)index
+2-3)configLines
+3.sendAndConfirm
+
+### Step 8 fetch a candy machine
+
+1. fetchCandyMachine

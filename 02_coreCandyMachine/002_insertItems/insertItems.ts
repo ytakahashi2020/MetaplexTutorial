@@ -8,7 +8,6 @@ import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import {
   addConfigLines,
   create,
-  CreateInput,
   fetchCandyMachine,
   mplCandyMachine,
 } from "@metaplex-foundation/mpl-core-candy-machine";
