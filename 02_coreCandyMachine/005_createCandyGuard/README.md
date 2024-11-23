@@ -57,15 +57,15 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 
 ### Step 7 get a candyGuardAccount
 
-1.findCandyGuardPda
+1.findCandyGuardPda  
 2.fetchCandyGuard
 
 ### Step 8 mint
 
-1.mintV1
-2.parameters
-2-1)candyMachine
-2-2)asset
-2-3)collection
-3.sendAndConfirm
+1.mintV1  
+2.parameters  
+2-1)candyMachine  
+2-2)asset  
+2-3)collection  
+3.sendAndConfirm  
 4.Confirm error happens

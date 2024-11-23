@@ -64,19 +64,19 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 
 ### Step 7 add a config line
 
-1.addConfigLines from mpl-core-candy-machine
-2.parameters
-2-1)candymachine
-2-2)index
-2-3)configLines
+1.addConfigLines from mpl-core-candy-machine  
+2.parameters  
+2-1)candymachine  
+2-2)index  
+2-3)configLines  
 3.sendAndConfirm
 
 ### Step 8 mint
 
-1.mintV1
-2.parameters
-2-1)candyMachine
-2-2)asset
-2-3)collection
-3.sendAndConfirm
+1.mintV1  
+2.parameters  
+2-1)candyMachine  
+2-2)asset  
+2-3)collection  
+3.sendAndConfirm  
 4.Confirm error happens

@@ -62,13 +62,13 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 
 ### Step 7 add a config line
 
-1.addConfigLines from mpl-core-candy-machine
-2.parameters
-2-1)candymachine
-2-2)index
-2-3)configLines
+1.addConfigLines from mpl-core-candy-machine  
+2.parameters  
+2-1)candymachine  
+2-2)index  
+2-3)configLines  
 3.sendAndConfirm
 
 ### Step 8 fetch a candy machine
 
-1. fetchCandyMachine
+1.fetchCandyMachine
