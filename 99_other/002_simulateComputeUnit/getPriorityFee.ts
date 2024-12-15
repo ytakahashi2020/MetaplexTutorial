@@ -63,16 +63,12 @@ if (!response.ok) {
 }
 
 const data = await response.json();
+
+console.log(data);
 const unitsConsumed = data.result?.value?.unitsConsumed;
 
-let computeUnit: number;
+const calculatedUnits = !unitsConsumed
+  ? DEFAULT_COMPUTE_UNITS
+  : Math.ceil(unitsConsumed * BUFFER_FACTOR);
 
-// Fallback to default if simulation doesn't provide compute units
-if (!unitsConsumed) {
-  console.log("Simulation didn't return compute units, using default value");
-  computeUnit = DEFAULT_COMPUTE_UNITS;
-} else {
-  computeUnit = Math.ceil(unitsConsumed * BUFFER_FACTOR);
-}
-
-console.log(computeUnit);
+console.log(calculatedUnits);
