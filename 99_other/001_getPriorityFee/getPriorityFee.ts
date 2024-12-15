@@ -2,7 +2,6 @@ import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
 import fs from "fs";
 import { keypairIdentity, publicKey, sol } from "@metaplex-foundation/umi";
 import { mplToolbox, transferSol } from "@metaplex-foundation/mpl-toolbox";
-import { map } from "@metaplex-foundation/umi/serializers";
 
 const umi = createUmi("https://api.devnet.solana.com");
 
@@ -35,10 +34,10 @@ basicTransaction.items.forEach((item) => {
 const response = await fetch(umi.rpc.getEndpoint(), {
   method: "POST",
   headers: {
-    "Contetn-Type": "application/json",
+    "Content-Type": "application/json",
   },
   body: JSON.stringify({
-    jsronrpc: "2.0",
+    jsonrpc: "2.0",
     id: 1,
     method: "getRecentPrioritizationFees",
     params: [Array.from(distinctPublicKeys)],
@@ -52,9 +51,13 @@ const data = (await response.json()) as {
   }[];
 };
 
+console.log(data);
+
 const fees = data.result?.map((entry) => entry.prioritizationFee) || [];
 const topFees = fees.sort((a, b) => b - a).slice(0, 100);
 const average =
   topFees.length > 0
     ? Math.ceil(topFees.reduce((sum, fee) => sum + fee, 0) / topFees.length)
     : 0;
+
+console.log(`averageFee is ${average}`);
