@@ -20,12 +20,27 @@ keypairIdentity from @metaplex-foundation/umi"
 
 mplToolbox from @metaplex-foundation/mpl-toolbox
 
-### 6 Set const
+### 6 create sol transfer transaction
+
+transferSol from mpl-toolbox
+
+#### 1. destination
+
+-> publicKey from umi
+sample account (ALRz3jGqhwDW2erRcMxBuPDsu3kFoDb251M9snHHW3Xe)
+
+#### 2. amount
+
+-> sol from umi
+
+#### 3. setLatestBlockhash
+
+### 7 Set const
 
 DEFAULT_COMPUTE_UNITS = 800_000
 BUFFER_FACTOR = 1.1
 
-### 7 get a response
+### 8 get a response
 
 1 use fetch  
 2 simulateTransaction  
@@ -33,7 +48,7 @@ BUFFER_FACTOR = 1.1
 4 umi.transaction.serialize  
 5 check response is ok
 
-### 8 get a data
+### 9 get a data
 
 1 await response.json();  
 2 get unitsConsumed
