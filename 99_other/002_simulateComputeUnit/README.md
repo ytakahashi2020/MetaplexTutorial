@@ -37,7 +37,7 @@ sample account (ALRz3jGqhwDW2erRcMxBuPDsu3kFoDb251M9snHHW3Xe)
 
 ### 7 Set const
 
-DEFAULT_COMPUTE_UNITS = 800_000
+DEFAULT_COMPUTE_UNITS = 800_000  
 BUFFER_FACTOR = 1.1
 
 ### 8 get a response
