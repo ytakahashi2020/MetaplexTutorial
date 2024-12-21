@@ -17,11 +17,28 @@ use createUmi from @metaplex-foundation/umi-bundle-defaults
 1. umi.use
 2. keypairIdentity from @metaplex-foundation/umi
 
-### Step5 create a collection
+### Step5 create sample publicKeys
 
-1. createCollection from mpl-core
+const creator1 = publicKey("7k6qQmQhZvu7toivZTjxSv43FBaXzK2mUEBUhQ4Jucqo");  
+const creator2 = publicKey("6NKkyM14Q8DpPGBY6S5UXoy1arrPSrQ9a2vWErNzNm12");  
+const allow1 = publicKey("8BgiiWipqoSf6zadDF8EcA3MDTCXFampjX7AJ46ZEFky");  
+const allow2 = publicKey("ALRz3jGqhwDW2erRcMxBuPDsu3kFoDb251M9snHHW3Xe");
 
-### Step6 create an asset into collection
+### Step6 create an asset
 
-1. fetchCollection
-2. create (set collection)
+#### 1. create asset by generateSigner
+
+#### 2. createCollection from mpl-core
+
+#### 3. set plugins
+
+1. type
+2. basisPoints
+3. creators
+4. ruleSet
+   -> use ruleSet from mpl-core
+
+### Step7 confirm the result
+
+1. signature by using base58
+2. fetchAssetV1
