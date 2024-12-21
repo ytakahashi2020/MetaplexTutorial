@@ -28,9 +28,11 @@ const allow2 = publicKey("ALRz3jGqhwDW2erRcMxBuPDsu3kFoDb251M9snHHW3Xe");
 
 #### 1. create asset by generateSigner
 
-#### 2. createCollection from mpl-core
+#### 2. create from mpl-core
 
 #### 3. set plugins
+
+uri: https://devnet.irys.xyz/uCHksWRGxnfQctScgjGgVWgrd7xBjwtxihVZjB72w1v
 
 1. type
 2. basisPoints
@@ -40,5 +42,4 @@ const allow2 = publicKey("ALRz3jGqhwDW2erRcMxBuPDsu3kFoDb251M9snHHW3Xe");
 
 ### Step7 confirm the result
 
-1. signature by using base58
-2. fetchAssetV1
+1. fetchAssetV1
